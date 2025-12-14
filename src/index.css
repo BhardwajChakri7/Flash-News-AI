@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme inline {
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
+    var(--delay, 0ms);
+
+  @keyframes cell-ripple {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-display;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+  html {
+    margin: 0;
+    padding: 0;
+  }
+  #root {
+    min-height: 100vh;
+    width: 100%;
+  }
+}
+
+.social-icons {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    background 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover::before {
+  opacity: 1;
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #333;
+  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    fill 0.3s ease;
+  z-index: 1;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon:active {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon:hover svg {
+  transform: scale(1.2);
+  fill: white;
+}
+
+.social-icon.twitter:hover {
+  background: linear-gradient(135deg, #1da1f2, #1a91da);
+}
+
+.social-icon.facebook:hover {
+  background: linear-gradient(135deg, #1877f2, #165ed0);
+}
+
+.social-icon.instagram:hover {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+/* Custom Glow effect for GitHub */
+.social-icon.github:hover {
+  background-color: #000000;
+}
+
+.social-icon.linkedin:hover {
+  background: linear-gradient(135deg, #0077b5, #005e94);
+}
