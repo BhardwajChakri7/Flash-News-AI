@@ -28,8 +28,8 @@ export function SignIn() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-grow flex items-center justify-center">
+      {/* <Header /> */}
+      <main className="flex-grow flex items-center justify-center mt-40 mb-10">
         <Card className="w-full max-w-md p-8 space-y-8">
           <CardHeader className="text-center">
             <CardTitle className="text-3xl">Welcome Back</CardTitle>

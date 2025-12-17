@@ -4,6 +4,8 @@ import { Feed } from "./pages/Feed"
 import { Article } from "./pages/Article"
 import { About } from "./pages/About"
 import { Features } from "./pages/Features"
+import { SignIn } from "./pages/SignIn";
+import { SignUp } from "./pages/SignUp";
 import { CustomCursor } from "./components/CustomCursor"
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
           <Route path="/article/:id?" element={<Article />} />
           <Route path="/about" element={<About />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </div>

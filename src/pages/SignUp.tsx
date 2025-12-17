@@ -39,7 +39,7 @@ export function SignUp() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      {/* <Header /> */}
       <main className="flex-grow flex items-center justify-center px-4">
         <Card className="w-full max-w-md p-8 space-y-8 my-10">
           <CardHeader className="text-center">
