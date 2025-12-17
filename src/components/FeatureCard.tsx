@@ -1,7 +1,18 @@
 // FeatureCard.jsx
 import { useTilt } from "./ui/useTilt"; // Assuming useTilt is in a file named useTilt.js/ts
 import "../index.css";
-const FeatureCard = ({ title, description, iconPath, svgViewBox }) => {
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  iconPath: string;
+  svgViewBox?: string; // optional
+}
+const FeatureCard = ({
+  title,
+  description,
+  iconPath,
+  svgViewBox,
+}: FeatureCardProps) => {
   // *** KEY FIX: Call the hook inside the component so each instance gets its own ref. ***
   const { ref, onMouseMove, onMouseLeave } = useTilt();
 
